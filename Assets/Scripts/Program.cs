@@ -16,19 +16,25 @@ namespace DataLogger
         {
             FileHandler = new FileDemo();
 
-            /* Timestamp of when App first loads */
-            FileHandler.LogCurrentTime(FileDemo.LogType.OnStart);
+            if(FileHandler != null)
+            {
+                /* Timestamp of when App first loads */
+                FileHandler.LogCurrentTime(FileDemo.LogType.OnStart);
+            }
             
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                FileHandler.LogCurrentTime(FileDemo.LogType.SpaceBar);
-            }
 
+            if(FileHandler != null)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    FileHandler.LogCurrentTime(FileDemo.LogType.SpaceBar);
+                }
+            }
         }
 
         // OnDestroy called when program shuts down
